@@ -1,7 +1,9 @@
 const users = [];
+let nextUserId = 1;
 
 const UserModel = {
     createUser: (user) => {
+        user.id = nextUserId++;
         users.push(user);
         return user;
     },

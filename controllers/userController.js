@@ -1,3 +1,4 @@
+//usercontroller.js
 const UserModel = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 
@@ -15,8 +16,9 @@ const registerUser = (req, res) => {
         return res.status(400).json({ message: "User already exists" });
     }
 
-    const newUser = { id: Date.now(), username, password, email };
-    UserModel.createUser(newUser);
+    const newUser = { username, password, email };
+    const createdUser = UserModel.createUser(newUser); // ID is automatically added here
+
     res.status(201).json({ message: "User registered successfully" });
 };
 
@@ -44,7 +46,7 @@ const getUserProfile = (req, res) => {
         return res.status(404).json({ message: "User not found" });
     }
 
-    res.json({ username: user.username, email: user.email }); // Respond with the user's profile data (username and email)
+    res.json({ id: user.id, username: user.username, email: user.email }); // Include the user's ID in the response
 };
 
 module.exports = { registerUser, loginUser, getUserProfile };
