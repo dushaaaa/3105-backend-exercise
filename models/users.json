@@ -1,0 +1,20 @@
+[
+  {
+    "username": "Jungkoo",
+    "password": "kookie15",
+    "email": "myhotspot@gmail.com",
+    "id": 1
+  },
+  {
+    "username": "marga_doc",
+    "password": "cisco123",
+    "email": "test@gmail.com",
+    "id": 2
+  },
+  {
+    "username": "user",
+    "password": "password",
+    "email": "mail@gmail.com",
+    "id": 3
+  }
+]
