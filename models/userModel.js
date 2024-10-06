@@ -1,18 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 
-// Path to the JSON file
-const filePath = path.join(__dirname, 'users.json');
+const filePath = path.join(__dirname, '../data/users.json'); //updated path haha
 
-// Helper function to read the users from the JSON file
+// read the users from json
 const readUsersFromFile = () => {
     const data = fs.readFileSync(filePath, 'utf-8');
-    return JSON.parse(data); // Convert JSON string to JS object
+    return JSON.parse(data);
 };
 
-// Helper function to write users to the JSON file
+// write users to json
 const writeUsersToFile = (users) => {
-    fs.writeFileSync(filePath, JSON.stringify(users, null, 2)); // Convert JS object to JSON string
+    fs.writeFileSync(filePath, JSON.stringify(users, null, 2));
 };
 
 let nextUserId = (() => {
@@ -20,7 +19,7 @@ let nextUserId = (() => {
     if (users.length === 0) {
         return 1;
     }
-    // Find the highest ID in the current users and increment from that
+    // find highest id to ++
     const maxId = Math.max(...users.map(user => user.id));
     return maxId + 1;
 })();
@@ -28,9 +27,9 @@ let nextUserId = (() => {
 const UserModel = {
     createUser: (user) => {
         const users = readUsersFromFile();
-        user.id = nextUserId++; // Auto-increment the ID
+        user.id = nextUserId++;
         users.push(user);
-        writeUsersToFile(users); // Save updated users to JSON file
+        writeUsersToFile(users); 
         return user;
     },
     

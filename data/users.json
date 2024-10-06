@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": 1,
+    "username": "Jungkoo",
+    "password": "kookie15",
+    "email": "myhostspot@gmail.com"
+  },
+  {
+    "id": 2,
+    "username": "marga_doc",
+    "password": "cisco123",
+    "email": "shakoy@gmail.com"
+  },
+  {
+    "id": 3,
+    "username": "user",
+    "password": "password",
+    "email": "mail@gmail.com"
+  }
+]
